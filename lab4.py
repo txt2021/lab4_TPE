@@ -208,14 +208,13 @@ while not adekvat:
               "+ {:.3f} * Х1Х2X3= ŷ".format(beta[0], beta[1], beta[2], beta[3], beta[4], beta[5], beta[6], beta[7]))
         print("\t__________Критерій Кохрена__________")
         Gt = Perevirku.get_cohren_value(f2, f1, q)
-        if Gt > Gp or m >= 25:
+        if Gt > Gp or m >= 25: #при значенні m>=25 коефіцієнт Gp прямує до ідеального значення, тому дисперсія буде завжди однорідра
             print("\t\tДисперсія однорідна при рівні значимості {:.2f}".format(q))
             odnorid = True
         else:
             print("\t\tДисперсія не однорідна при рівні значимості {:.2f}".format(q))
             m += 1
-        if m == 25:
-            exit()
+       
         significant_coefficients = student_test(beta, 8)
         print("\t__________Критерій Стьюдента__________")
         print("{:.3f} + {:.3f} * X1 + {:.3f} * X2 + {:.3f} * X3 + {:.3f} * Х1X2 + {:.3f} * Х1X3 + {:.3f} * Х2X3"
